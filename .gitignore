@@ -1,0 +1,6 @@
+# compiled java files
+bin/
+*.class
+
+# mac files
+.DS_Store

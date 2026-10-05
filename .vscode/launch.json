@@ -1,0 +1,12 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Virtual Pet",
+            "request": "launch",
+            "mainClass": "VirtualPet",
+            "vmArgs": "--module-path \"/Users/codyv/JavaFX/javafx-sdk-21.0.12/lib\" --add-modules javafx.controls"
+        }
+    ]
+}
