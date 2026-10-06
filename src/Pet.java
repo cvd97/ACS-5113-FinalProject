@@ -8,4 +8,35 @@
  *
  */
 
+public class Pet {
 
+    // fields to store the pet's status
+    private int hunger;
+    private int happiness;
+    private int energy;
+
+    // creates the pet with their own starting values
+    public Pet() {
+        hunger = 50;
+        happiness = 50;
+        energy = 50;
+    }
+
+    // gets the pet's hunger
+    public int getHunger() {
+        return hunger;
+    }
+
+    // gets the pet's happiness
+    public int getHappiness() {
+        return happiness;
+    }
+
+    // gets the pet's energy
+    public int getEnergy() {
+        return energy;
+    }
+
+    
+
+}
