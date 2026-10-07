@@ -3,10 +3,12 @@
     "configurations": [
         {
             "type": "java",
-            "name": "Virtual Pet",
+            "name": "VirtualPetGame",
             "request": "launch",
-            "mainClass": "VirtualPet",
+            "mainClass": "VirtualPetGame",
+            "projectName": "ACS-5139-FinalProject_3412958",
             "vmArgs": "--module-path \"/Users/codyv/JavaFX/javafx-sdk-21.0.12/lib\" --add-modules javafx.controls"
+
         }
     ]
 }
