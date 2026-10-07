@@ -62,6 +62,7 @@ public class Pet {
     public void sleep() {
         energy += 25;
         hunger += 10;
+        happiness -= 15;
         checkStats();
     }
 

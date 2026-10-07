@@ -43,8 +43,6 @@ public class VirtualPetGame extends Application {
     private Pane speechBubble = new Pane();
     private Label bubbleIcon = new Label();
 
-    // keeps the icon buuble visible for an amount of time
-
     public void start(Stage primaryStage) {
 
         // create the title of the game
@@ -226,6 +224,9 @@ public class VirtualPetGame extends Application {
         bubbleIcon.setPrefSize(80, 50);
         bubbleIcon.setAlignment(Pos.CENTER);
         bubbleIcon.setFont(Font.font(24));
+        bubbleIcon.setStyle(
+                "-fx-background-color: white;"
+                        + "-fx-background-radius: 15;");
 
         // place the bubble in relation to the pet
         speechBubble.setPrefSize(80, 60);
@@ -347,7 +348,7 @@ public class VirtualPetGame extends Application {
         button.setMaxSize(buttonWidth, buttonHeight);
 
         button.setAlignment(Pos.CENTER);
-        button.setPadding(new Insets(0, 0, buttonWidth / 3, 0));
+        button.setPadding(new Insets(0, 0, buttonHeight / 3, 0));
 
     }
 
