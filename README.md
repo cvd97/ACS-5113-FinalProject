@@ -1,4 +1,4 @@
-# ACS-5139-FinalProject-JavaFX-TamagotchiLite
+# ACS-5139-FinalProject-JavaFX-TamagotchiLike
 
 A simple virtual pet game similar to Tamagotchi using Java and JavaFX. The user will care for the pet by feeding it, playing with it, and letting it sleep.
 
@@ -6,7 +6,7 @@ I plan to get the game working first, then improve how it looks using basic shap
 
 ## Project Status
 
-The project is currently in the planning stage. I will update this as I complete each part.
+The project is currently in the development stage. I will update this as I complete each part.
 
 ## Planned Features
 
