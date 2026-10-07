@@ -12,14 +12,17 @@ public class Pet {
 
     // fields to store the pet's status
     private String name;
-    private String type;
     private int hunger;
     private int happiness;
     private int energy;
 
     // creates the pet with their own starting values
     public Pet() {
-        type = "Dog";
+        reset();
+    }
+
+    // resets all the pets values
+    public void reset() {
         hunger = 50;
         happiness = 50;
         energy = 50;
@@ -50,14 +53,65 @@ public class Pet {
         this.name = petName;
     }
 
-    // TODO: add feed()
+    public void feed() {
+        hunger -= 20;
+        happiness += 5;
+        checkStats();
+    }
 
-    // TODO: add play()
+    public void sleep() {
+        energy += 25;
+        hunger += 10;
+        checkStats();
+    }
 
-    // TODO: add sleep()
+    // checks if there is enough energy to play
+    public boolean play() {
 
-    // TODO: get status
+        if (energy < 20) {
+            return false;
+        } else {
+            hunger += 10;
+            happiness += 15;
+            energy -= 20;
+            checkStats();
 
-    // TODO: add reset()
+            return true;
+        }
+    }
 
+    // keeps values in the 0 to 100 bounds
+    private void checkStats() {
+
+        if (hunger < 0) {
+            hunger = 0;
+        } else if (hunger > 100) {
+            hunger = 100;
+        }
+
+        if (energy < 0) {
+            energy = 0;
+        } else if (energy > 100) {
+            energy = 100;
+        }
+
+        if (happiness < 0) {
+            happiness = 0;
+        } else if (happiness > 100) {
+            happiness = 100;
+        }
+    }
+
+    // returns a message of the pets status
+    public String getStatus() {
+        if (energy <= 20) {
+            return "Awe!! " + this.getName() + " is soo sleepy and needs to be tucked in!";
+        } else if (hunger >= 70) {
+            return "Feed " + this.getName() + "! They are so hungry!";
+        } else if (happiness < 30) {
+            return "Get up and play! " + this.getName() + "! They need some ZOOMIESS!";
+        } else {
+            return "Let's GO! " + this.getName() + " is ready for some fun!";
+        }
+    }
 }
