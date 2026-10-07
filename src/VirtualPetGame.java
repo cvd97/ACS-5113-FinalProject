@@ -108,11 +108,26 @@ public class VirtualPetGame extends Application {
         quitButton.setLayoutY(32);
         quitButton.setOnAction(event -> primaryStage.close());
 
-        // adds the title and buttons over the black top bar
-        mainPane.getChildren().addAll(
-                titleLabel, resetButton, quitButton);
+        // place the feedButton in the left corner
+        feedButton.setPrefSize(80, 35);
+        feedButton.setLayoutX(85);
+        feedButton.setLayoutY(85);
+
+        // place the playButton in the right corner
+        playButton.setPrefSize(80, 35);
+        playButton.setLayoutX(windowWidth + 40 - 85 - 80);
+        playButton.setLayoutY(85);
+
+        // place the sleepButton in the bottom
+        sleepButton.setPrefSize(80, 35);
+        sleepButton.setLayoutX((windowWidth + 40 - 80) / 2);
+        sleepButton.setLayoutY(windowHeight - 100);
 
         // TODO: add game content: pet data and status, buttons, ect
+
+        // adds the title and buttons over the black top bar
+        mainPane.getChildren().addAll(
+                titleLabel, resetButton, quitButton, feedButton, playButton, sleepButton);
 
         // creates the scene
         Scene scene = new Scene(
