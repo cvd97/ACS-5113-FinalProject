@@ -105,7 +105,7 @@ public class Pet {
     // returns a message of the pets status
     public String getStatus() {
         if (energy <= 20) {
-            return "Awe!! " + this.getName() + " is soo sleepy and needs to be tucked in!";
+            return "Awe!! " + this.getName() + " is too sleepy!";
         } else if (hunger >= 70) {
             return "Feed " + this.getName() + "! They are so hungry!";
         } else if (happiness < 30) {

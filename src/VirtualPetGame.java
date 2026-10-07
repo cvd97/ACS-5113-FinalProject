@@ -35,6 +35,16 @@ public class VirtualPetGame extends Application {
     private Label energyLabel = new Label();
     private Label statusLabel = new Label("Your pet is awake!");
 
+    // creates the bars for updating each action
+    private ProgressBar hungerBar = new ProgressBar();
+    private ProgressBar happinessBar = new ProgressBar();
+    private ProgressBar energyBar = new ProgressBar();
+
+    private Pane speechBubble = new Pane();
+    private Label bubbleIcon = new Label();
+
+    // keeps the icon buuble visible for an amount of time
+
     public void start(Stage primaryStage) {
 
         // create the title of the game
@@ -101,8 +111,6 @@ public class VirtualPetGame extends Application {
         resetButton.setLayoutX(60);
         resetButton.setLayoutY(32);
 
-        // TODO: reset the pet's stats when the reset button is clicked
-
         // adding the pet into the scene and naming the pet
         double petCenterX = windowWidth / 2 + 20;
         double petCenterY = 20 + barHeight + (windowHeight - barHeight) / 3;
@@ -147,6 +155,15 @@ public class VirtualPetGame extends Application {
                 // shows the pet and its name
                 petShape.setVisible(true);
                 petNameLabel.setVisible(true);
+                // enables the care buttons after the pet has been named
+                feedButton.setDisable(false);
+                playButton.setDisable(false);
+                sleepButton.setDisable(false);
+                resetButton.setDisable(false);
+
+                // displays the pet's current status
+                statusLabel.setVisible(true);
+                updateDisplay();
             }
         });
 
@@ -172,8 +189,6 @@ public class VirtualPetGame extends Application {
         sleepButton.setLayoutX((windowWidth + 40 - 80) / 2);
         sleepButton.setLayoutY(windowHeight - 100);
 
-        // TODO: add game content: pet data and status, buttons, ect
-
         // changes the interactive buttons to triangles
         buttonStyle(feedButton);
         buttonStyle(playButton);
@@ -183,11 +198,6 @@ public class VirtualPetGame extends Application {
         hungerLabel.setText("Hunger: " + myPet.getHunger() + "%");
         happinessLabel.setText("Happiness: " + myPet.getHappiness() + "%");
         energyLabel.setText("Energy: " + myPet.getEnergy() + "%");
-
-        // creates the bars to display the status
-        ProgressBar hungerBar = new ProgressBar(myPet.getHunger() / 100.0);
-        ProgressBar happinessBar = new ProgressBar(myPet.getHappiness() / 100.0);
-        ProgressBar energyBar = new ProgressBar(myPet.getEnergy() / 100.0);
 
         // places happiness on top in the center
         VBox happinessBox = createStatusBar(happinessLabel, happinessBar);
@@ -212,6 +222,66 @@ public class VirtualPetGame extends Application {
                 petShape, petNameField, petNameLabel,
                 happinessBox, hungerBox, energyBox);
 
+        // create the bubble background
+        bubbleIcon.setPrefSize(80, 50);
+        bubbleIcon.setAlignment(Pos.CENTER);
+        bubbleIcon.setFont(Font.font(24));
+
+        // place the bubble in relation to the pet
+        speechBubble.setPrefSize(80, 60);
+        speechBubble.setLayoutX(petCenterX + 55);
+        speechBubble.setLayoutY(petCenterY - 60);
+        speechBubble.getChildren().addAll(bubbleIcon);
+        speechBubble.setVisible(false);
+
+        statusLabel.setAlignment(Pos.CENTER);
+        statusLabel.setWrapText(true);
+        statusLabel.setPrefSize(280, 65);
+        statusLabel.setLayoutX(petCenterX - 140);
+        statusLabel.setLayoutY(petCenterY - 120);
+        statusLabel.setVisible(false);
+
+        mainPane.getChildren().addAll(speechBubble, statusLabel);
+
+        // disables buttons before pet name is given
+        feedButton.setDisable(true);
+        playButton.setDisable(true);
+        sleepButton.setDisable(true);
+        resetButton.setDisable(true);
+
+        // feeds the pet and shows the icon
+        feedButton.setOnAction(event -> {
+            myPet.feed();
+            updateDisplay();
+            showBubbleIcon("🍽️");
+        });
+
+        // play with the pet
+        playButton.setOnAction(event -> {
+
+            if (myPet.play()) {
+                updateDisplay();
+                showBubbleIcon("🤩");
+            } else {
+                updateDisplay();
+                statusLabel.setText(myPet.getName() + " need to get some rest!");
+                showBubbleIcon("💤");
+            }
+        });
+
+        sleepButton.setOnAction(event -> {
+            myPet.sleep();
+            updateDisplay();
+            showBubbleIcon("💤");
+        });
+
+        resetButton.setOnAction(event -> {
+            myPet.reset();
+            updateDisplay();
+
+            speechBubble.setVisible(false);
+        });
+
         // creates the scene
         Scene scene = new Scene(
                 mainPane, windowWidth + 40, windowHeight + 40);
@@ -224,12 +294,32 @@ public class VirtualPetGame extends Application {
         primaryStage.show();
     }
 
+    // updates all the labels, bars, and status messages
+    private void updateDisplay() {
+
+        hungerLabel.setText("Hunger: " + myPet.getHunger() + "%");
+        happinessLabel.setText("Happiness: " + myPet.getHappiness() + "%");
+        energyLabel.setText("Energy: " + myPet.getEnergy() + "%");
+
+        hungerBar.setProgress((myPet.getHunger() / 100.0));
+        happinessBar.setProgress(myPet.getHappiness() / 100.0);
+        energyBar.setProgress(myPet.getEnergy() / 100.0);
+
+        statusLabel.setText(myPet.getStatus());
+    }
+
+    // shows and icon above the pet
+    private void showBubbleIcon(String icon) {
+        bubbleIcon.setText(icon);
+        speechBubble.setVisible(true);
+    }
+
     private VBox createStatusBar(Label label, ProgressBar bar) {
 
         label.setPrefWidth(180);
 
         bar.setPrefSize(180, 14);
-        bar.maxWidth(180);
+        bar.setMaxWidth(180);
 
         VBox statusBox = new VBox(5);
         statusBox.setPrefSize(180, 45);
