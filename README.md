@@ -27,16 +27,6 @@ The stats will change when a button is clicked. For example, playing will make t
 - Visual Studio Code
 - Git and GitHub
 
-## Development Plan
-
-- [ ] Create the window with labels and buttons
-- [ ] Create a pet class to store its information
-- [ ] Add methods for feeding, playing, and sleeping
-- [ ] Connect the buttons using event handlers
-- [ ] Update the displayed stats and status message after each action
-- [ ] Add the reset button
-- [ ] Test that everything works correctly
-- [ ] Improve the appearance and add pet images if I can
 
 ## Testing
 
@@ -48,9 +38,6 @@ The stats will change when a button is clicked. For example, playing will make t
 
 ## Running the Game
 
-## Project Scope
-
-I am keeping this project around 100–200 lines of Java code and using the concepts we have covered in class. This includes classes, methods, conditional statements, and JavaFX event handlers
 
 
 ## Author

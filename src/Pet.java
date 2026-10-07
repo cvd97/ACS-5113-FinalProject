@@ -19,7 +19,6 @@ public class Pet {
 
     // creates the pet with their own starting values
     public Pet() {
-        name = "Stella";
         type = "Dog";
         hunger = 50;
         happiness = 50;
@@ -41,6 +40,16 @@ public class Pet {
         return energy;
     }
 
+    // gets name
+    public String getName() {
+        return name;
+    }
+
+    // sets pets name
+    public void setName(String petName) {
+        this.name = petName;
+    }
+
     // TODO: add feed()
 
     // TODO: add play()
@@ -50,5 +59,5 @@ public class Pet {
     // TODO: get status
 
     // TODO: add reset()
-    
+
 }
