@@ -11,12 +11,16 @@
 public class Pet {
 
     // fields to store the pet's status
+    private String name;
+    private String type;
     private int hunger;
     private int happiness;
     private int energy;
 
     // creates the pet with their own starting values
     public Pet() {
+        name = "Stella";
+        type = "Dog";
         hunger = 50;
         happiness = 50;
         energy = 50;
@@ -37,4 +41,14 @@ public class Pet {
         return energy;
     }
 
+    // TODO: add feed()
+
+    // TODO: add play()
+
+    // TODO: add sleep()
+
+    // TODO: get status
+
+    // TODO: add reset()
+    
 }
