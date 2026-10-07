@@ -22,9 +22,9 @@ The goal is to create a simple virtual pet game. The user will feed the pet, pla
 
 ## Starting Values
 
-- Hunger starts at 50
-- Happiness starts at 50
-- Energy starts at 50
+- Hunger starts at 50 out of 100
+- Happiness starts at 50 out of 100
+- Energy starts at 50 out of 100
 
 ## Care Logic
 
