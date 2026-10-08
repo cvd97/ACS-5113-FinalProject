@@ -71,7 +71,7 @@ The game uses a a fixed triangular window this is to mimic the handheld experien
 
 This project give me valuable experience with a way to combine the Java and JavaFX concepts into a funtional game. 
 I started by developming the window and controls, the I added the pets behavior and game actions one at a time. 
-I am using GitHub to track the develpoment and backup
+I am using GitHub to track the develpoment and backup the project
 
 ## Author
 
