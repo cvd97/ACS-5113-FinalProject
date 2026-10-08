@@ -35,7 +35,7 @@ The game uses a a fixed triangular window this is to mimic the handheld experien
 | --- | --- | --- | --- |
 | Feed | Decreases by 20 | Increases by 5 | No change |
 | Zoomies | Increases by 10 | Increases by 15 | Decreases by 20 |
-| Sleep | Increases by 10 | Decrease by 15 | Increases by 25 |
+| Sleep | Increases by 10 | Decreases by 15 | Increases by 25 |
 | Reset | Returns to 50 | Returns to 50 | Returns to 50 |
 
 - There needs ot be at least 20 energy fot the pet to play.
