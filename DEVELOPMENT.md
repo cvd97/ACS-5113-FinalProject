@@ -2,36 +2,38 @@
 
 ## Project Goal
 
-The goal is to create a simple virtual pet game. The user will feed the pet, play with the pet, and tuck it in. 
+The goal is to create a simple virtual pet game. The user will feed the pet, play with the pet, and tuck it in.
 
-## Project Files
+## Design Decisions
 
-- `src/Pet.java` stores the pet's stats and handles its actions
-- `src/VirtualPet.java` creates the window and handles button clicks
-- `README.md` describes the project and how to run it
-- `DEVELOPMENT.md` tracks the work and testing
-- `.gitignore` keeps generated files out of the repository
+- The game window is an upside doen equalateral triangle
+- The action buttons are the same shaoe as the window
+- Pet.java stores all the pets information and care logic
+- VirtualPetGame.java handles the window user inout and dispay updates
+- The user names the pet at the start of the game
+- care button are avaliable to interact after the pets name is entered
+- A pet appears when the name is given
+- Stats change when actions are clcicked
+- Sleeping restores energy but increases hunger and decreases happiness
+- Actiuons icons appear to show the user the interaction is happening
+- Reset button resets the game while keeping the pet thte same
 
-## Java Concepts Utilized
+  
+## Comleted Tasks
 
-- Private fields, constructors, and getters to store pet information
-- Methods to handle feeding, playing, sleeping, and resetting
-- JavaFX labels and buttons to display information and accept input
-- VBox and HBox to organize the window
-- Event handlers to respond to button clicks
-
-## Starting Values
-
-- Hunger starts at 50 out of 100
-- Happiness starts at 50 out of 100
-- Energy starts at 50 out of 100
-
-## Care Logic
-
-- Higher hunger means the pet is hungrier
-- Higher happiness and energy mean the pet is doing better
-- All stats must stay between 0 and 100
-- The stats only change when an action button is clicked
+- [x] Set up the JavaFX project and GitHub repository
+- [x] Created the triangular window and top bar
+- [x] Added the title, Reset, and Quit buttons
+- [x] Created triangular care buttons
+- [x] Added the pet class and starting stats
+- [x] Let the user name the pet
+- [x] Display the pet after a valid name is entered
+- [x] Added labeled progress bars
+- [x] Implemented feeding, playing, and sleeping
+- [x] Connected the buttons to the pet's methods
+- [x] Added status messages and action icons
+- [x] Added reset behavior
+- [x] Set sleeping to decrease happiness by 15
 
 ## Action Rules
 
