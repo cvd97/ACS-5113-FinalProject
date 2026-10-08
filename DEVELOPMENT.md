@@ -6,7 +6,7 @@ The goal is to create a simple virtual pet game. The user will feed the pet, pla
 
 ## Design Decisions
 
-- The game window is an upside-down equilateral triangle.
+- The game window is an upside down equilateral triangle.
 - The care buttons are the same shape as the window.
 - Pet.java stores the pet's information and care logic.
 - VirtualPetGame.java handles the window, user input, and display updates.
