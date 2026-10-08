@@ -56,9 +56,9 @@ Stores all pet information
 
 FIELDS:
 
-- 'private int hunger'
-- 'private int happiness'
-- 'private int energy'
+- `private int hunger`
+- `private int happiness`
+- `private int energy`
 
 METHODS:
 
@@ -84,7 +84,29 @@ These will show given varied conditions
 
 ## VirtualPet.java
 
-This class extends the Application class adn creates the JavaFX window
+Create the window for the game and handles all inputs and display updates
+
+FIELDS:
+
+- `private Pet myPet`: stores the pet object
+- `private Label hungerLabel`: displays the pet's hunger
+- `private Label happinessLabel`: displays the pet's happiness
+- `private Label energyLabel`: displays the pet's energy
+- `private Label statusLabel`: displays a message about the pet
+- `private ProgressBar hungerBar`: visually displays hunger
+- `private ProgressBar happinessBar`: visually displays happiness
+- `private ProgressBar energyBar`: visually displays energy
+- `private Pane speechBubble`: holds the pet's action icon
+- `private Label bubbleIcon`: displays the icon for eating, playing, or sleeping
+
+METHODS:
+
+- `start(Stage primaryStage)`: create the game window as a upside down triangle
+- `updateDisplay()`: updates all the lables as the values change when the game is being played
+- `showBubbleIcon(String icon`: changes the axtion icon to show what action is being done
+- `createStatusBar(Label label, ProgressBar bar`: places the labels and progress bars in a VBox and returns the VBox
+- `buttonStyle(Button button`: makes the buttins look like the window in shape
+- `main(String[] args)`: lauches the JavaFx game
 
 Game Screen:
 - VanDykeFinalProject
