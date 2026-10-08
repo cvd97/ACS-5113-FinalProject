@@ -1,44 +1,77 @@
-# ACS-5139-FinalProject-JavaFX-TamagotchiLike
+# ACS-5139-FinalProject-JavaFX-Virtual-Pet
 
-A simple virtual pet game similar to Tamagotchi using Java and JavaFX. The user will care for the pet by feeding it, playing with it, and letting it sleep.
+A simple virtual pet game that is similar to a Tamagotchi handheld game. 
 
-I plan to get the game working first, then improve how it looks using basic shapes, colors, and possibly pet images.
+The user will be able to feed, play with and let the pet rest to maintain the pet's status.
 
 ## Project Status
 
-The project is currently in the development stage. I will update this as I complete each part.
+The main game is functional. The pet is represented by a red circle and all of the feeding, playing and sleeping mechanics are implemented.
 
-## Planned Features
+## Features
 
-- Display the pet and its hunger, happiness, and energy levels
-- Add buttons to feed, play, and sleep
-- Have each action change the pet's stats
-- Keep the stats between 0 and 100
-- Prevent the pet from playing if it does not have enough energy
-- Display a message about how the pet is feeling
-- Add a reset button to start over
+- Enter a pet name before the pet appears
+- Feed the pet to reduce hunger and increase happiness
+- Play with the pet using the zoomies button to increase happiness
+- Let the pet rest to restore energy also looses happiness
+- Progress bars to visually track the pet metrics
+- See messages that reflect the pets status
+- shows action icons so that the action can be seen
+- reset button to reset the stats of the pet
+- quit button allows for easy closing of the game
 
-The stats will change when a button is clicked. For example, playing will make the pet happier but also use energy and make it hungrier.
+The game uses a a fixed triangular window this is to mimic the handheld experience.
 
+## How to Play
+
+1. User is prompted to enter a name fore their pet then press enter.
+2. Using the Feed, Zoomies, and Sleep buttons take care of you pet and make them happy!
+3. Keep an eye on the progress bars to make sure the pet is healthy!
+4. Cling the reset button to resset the stats or quit button to close the game.
+
+   Default stats are 50 out of a scale from 0 to 100 for all stats
+
+| Action | Hunger | Happiness | Energy |
+| --- | --- | --- | --- |
+| Feed | Decreases by 20 | Increases by 5 | No change |
+| Zoomies | Increases by 10 | Increases by 15 | Decreases by 20 |
+| Sleep | Increases by 10 | Decrease by 15 | Increases by 25 |
+| Reset | Returns to 50 | Returns to 50 | Returns to 50 |
+
+- There needs ot be at least 20 energy fot the pet to play.
+- Stats change when a button is clicked and an action icpon appears until another action is picked
+
+## Project Structure
+
+- 'src/Pet.java' stroes all of the pets information and handles the caring logic
+- 'src/VirtualPetGame.java creates the triangular game window and handles the user input, buttons and updates the display to show updates the the pets stats
+- 'README.md' describes the game and how to run it
+- 'DEVELOPMENT.md'
+- '.vscode/' contains the VS code project and launch settings
+  
 ## Tools
 
 - Java
 - JavaFX
 - Visual Studio Code
 - Git and GitHub
-
-
-## Testing
-
-- Make sure each button changes the stats correctly
-- Check that the stats cannot go below 0 or above 100
-- Make sure the pet cannot play without enough energy
-- Check that the messages match how the pet is feeling
-- Make sure the reset button restores the starting values
+- Classes, Constructors, Private Feilds, and Methods
+- Conditional Statements
+- Lambda expression and event handlers
 
 ## Running the Game
 
+1. Clone the repository and open the project
+2. Make sure JDK 21, JavaFX 21 SDK and the Microsoft Extension Pack for Java
+3. Update the file path for JavaFX library in '.vscode/setting.json'
+4. Update the module path in '.vscode/launch.json' to point to the correct SDKs lib folder
+5. launch the game and play!
 
+## Learned from Project
+
+This project give me valuable experience with a way to combine the Java and JavaFX concepts into a funtional game. 
+I started by developming the window and controls, the I added the pets behavior and game actions one at a time. 
+I am using GitHub to track the develpoment and backup
 
 ## Author
 
