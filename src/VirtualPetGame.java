@@ -41,18 +41,39 @@ public class VirtualPetGame extends Application {
     private ProgressBar happinessBar = new ProgressBar();
     private ProgressBar energyBar = new ProgressBar();
 
+    // cretes the bubble so the action icon can be displayed
     private Pane speechBubble = new Pane();
     private Label bubbleIcon = new Label();
+
+    // stores all the differnt pet images
+    private Image petStart;
+    private Image petHappy1;
+    private Image petHappy2;
+    private Image petSleeping;
+    private Image petTooSleepy;
+    private Image petSilly;
+
+    // displays the correct poet image
+    ImageView petShape = new ImageView();
+    private boolean isSleeping = false;
+
+    // stores the horizontal center for the pet images
+    private double petCenterX;
 
     public void start(Stage primaryStage) {
 
         // create the title of the game
         Label titleLabel = new Label("Virtual Pet by Cody Van Dyke");
 
-        // creates the pet using image
-        Image petImage = new Image(getClass().getResourceAsStream("petImages/petStart.png"));
+        // creates the starting pet image and all other images
+        petStart = new Image(getClass().getResourceAsStream("petImages/petStart.png"));
+        petHappy1 = new Image(getClass().getResourceAsStream("petImages/petHappy1.png"));
+        petHappy2 = new Image(getClass().getResourceAsStream("petImages/petHappy2.png"));
+        petSleeping = new Image(getClass().getResourceAsStream("petImages/petSleeping.png"));
+        petTooSleepy = new Image(getClass().getResourceAsStream("petImages/petTooSleepy.png"));
+        petSilly = new Image(getClass().getResourceAsStream("petImages/petSilly.png"));
 
-        ImageView petShape = new ImageView(petImage);
+        petShape.setImage(petStart);
         petShape.setFitHeight(250);
         petShape.setPreserveRatio(true);
 
@@ -113,7 +134,7 @@ public class VirtualPetGame extends Application {
         resetButton.setLayoutY(32);
 
         // adding the pet into the scene and naming the pet
-        double petCenterX = windowWidth / 2 + 20;
+        petCenterX = windowWidth / 2 + 20;
         double petCenterY = 20 + barHeight + (windowHeight - barHeight) / 3;
 
         petShape.setLayoutX(petCenterX - petShape.getBoundsInLocal().getWidth() / 2);
@@ -255,6 +276,7 @@ public class VirtualPetGame extends Application {
 
         // feeds the pet and shows the icon
         feedButton.setOnAction(event -> {
+            isSleeping = false;
             myPet.feed();
             updateDisplay();
             showBubbleIcon("🍽️");
@@ -262,6 +284,7 @@ public class VirtualPetGame extends Application {
 
         // play with the pet
         playButton.setOnAction(event -> {
+            isSleeping = false;
 
             if (myPet.play()) {
                 updateDisplay();
@@ -274,12 +297,14 @@ public class VirtualPetGame extends Application {
         });
 
         sleepButton.setOnAction(event -> {
+            isSleeping = true;
             myPet.sleep();
             updateDisplay();
             showBubbleIcon("💤");
         });
 
         resetButton.setOnAction(event -> {
+            isSleeping = false;
             myPet.reset();
             updateDisplay();
 
@@ -310,6 +335,34 @@ public class VirtualPetGame extends Application {
         energyBar.setProgress(myPet.getEnergy() / 100.0);
 
         statusLabel.setText(myPet.getStatus());
+
+        updatePetImage();
+    }
+
+    // change the pet image based on status levels
+    private void updatePetImage() {
+        if (myPet.getHunger() < 10 && myPet.getHappiness() == 100 && myPet.getEnergy() == 100) {
+            petShape.setImage(petSilly);
+            petShape.setFitWidth(200);
+        } else if (isSleeping) {
+            petShape.setImage(petSleeping);
+            petShape.setFitWidth(200);
+        } else if (myPet.getHappiness() >= 80 && myPet.getEnergy() > 30) {
+            petShape.setImage(petHappy2);
+            petShape.setFitWidth(200);
+        } else if (myPet.getHappiness() >= 55 && myPet.getEnergy() > 30) {
+            petShape.setImage(petHappy1);
+            petShape.setFitWidth(200);
+        } else if (myPet.getEnergy() < 20) {
+            petShape.setImage(petTooSleepy);
+            petShape.setFitWidth(200);
+        } else {
+            petShape.setImage(petStart);
+        }
+
+        // centers the pet after changing the image
+        petShape.setLayoutX(
+                petCenterX - petShape.getBoundsInLocal().getWidth() / 2);
     }
 
     // shows and icon above the pet
