@@ -358,6 +358,7 @@ public class VirtualPetGame extends Application {
             petShape.setFitWidth(200);
         } else {
             petShape.setImage(petStart);
+            petShape.setFitWidth(200);
         }
 
         // centers the pet after changing the image
