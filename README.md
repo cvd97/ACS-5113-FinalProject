@@ -46,7 +46,7 @@ The game uses a a fixed triangular window this is to mimic the handheld experien
 - 'src/Pet.java' stroes all of the pets information and handles the caring logic
 - 'src/VirtualPetGame.java creates the triangular game window and handles the user input, buttons and updates the display to show updates the the pets stats
 - 'README.md' describes the game and how to run it
-- 'DEVELOPMENT.md'
+- 'DEVELOPMENT.md' tracks the design decision and work check lists
 - '.vscode/' contains the VS code project and launch settings
   
 ## Tools
