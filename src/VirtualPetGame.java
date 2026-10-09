@@ -1,7 +1,6 @@
 import javafx.application.Application;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Font;
 import javafx.geometry.Pos;
@@ -14,6 +13,8 @@ import javafx.geometry.Insets;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ProgressBar;
 import javafx.scene.layout.VBox;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 
 /**
  * ACS - 5113 - Virtual Pet Game
@@ -48,10 +49,12 @@ public class VirtualPetGame extends Application {
         // create the title of the game
         Label titleLabel = new Label("Virtual Pet by Cody Van Dyke");
 
-        // uses a circle for the pet until an image is added
-        Circle petShape = new Circle(45);
-        petShape.setFill(Color.RED);
-        petShape.setStroke(Color.BLACK);
+        // creates the pet using image
+        Image petImage = new Image(getClass().getResourceAsStream("petImages/petStart.png"));
+
+        ImageView petShape = new ImageView(petImage);
+        petShape.setFitHeight(250);
+        petShape.setPreserveRatio(true);
 
         hungerLabel.setFont(Font.font(15));
         happinessLabel.setFont(Font.font(15));
@@ -113,8 +116,8 @@ public class VirtualPetGame extends Application {
         double petCenterX = windowWidth / 2 + 20;
         double petCenterY = 20 + barHeight + (windowHeight - barHeight) / 3;
 
-        petShape.setCenterX(petCenterX);
-        petShape.setCenterY(petCenterY);
+        petShape.setLayoutX(petCenterX - petShape.getBoundsInLocal().getWidth() / 2);
+        petShape.setLayoutY(petCenterY);
         petShape.setVisible(false);
 
         // gets the pet's name from the user
@@ -131,7 +134,7 @@ public class VirtualPetGame extends Application {
         petNameLabel.setAlignment(Pos.CENTER);
         petNameLabel.setPrefWidth(280);
         petNameLabel.setLayoutX(petCenterX - 140);
-        petNameLabel.setLayoutY(petCenterY + 55);
+        petNameLabel.setLayoutY(petCenterY + 250);
         petNameLabel.setVisible(false);
 
         // saves the pet's name and shows the pet when Enter is pressed
