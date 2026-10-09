@@ -55,7 +55,7 @@ The game uses a a fixed triangular window this is to mimic the handheld experien
 - JavaFX
 - Visual Studio Code
 - Git and GitHub
-- Classes, Constructors, Private Feilds, and Methods
+- Classes, Constructors, Private Fields, and Methods
 - Conditional Statements
 - Lambda expression and event handlers
 
