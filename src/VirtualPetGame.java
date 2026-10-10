@@ -137,6 +137,7 @@ public class VirtualPetGame extends Application {
         petCenterX = windowWidth / 2 + 20;
         double petCenterY = 20 + barHeight + (windowHeight - barHeight) / 3;
 
+        // sets the petShape location and sets to non visible to false
         petShape.setLayoutX(petCenterX - petShape.getBoundsInLocal().getWidth() / 2);
         petShape.setLayoutY(petCenterY);
         petShape.setVisible(false);
@@ -259,6 +260,7 @@ public class VirtualPetGame extends Application {
         speechBubble.getChildren().addAll(bubbleIcon);
         speechBubble.setVisible(false);
 
+        // sets the placement for the status label
         statusLabel.setAlignment(Pos.CENTER);
         statusLabel.setWrapText(true);
         statusLabel.setPrefSize(280, 65);
@@ -266,6 +268,7 @@ public class VirtualPetGame extends Application {
         statusLabel.setLayoutY(petCenterY - 120);
         statusLabel.setVisible(false);
 
+        // adds spped bubble and statusLabel to the main view
         mainPane.getChildren().addAll(speechBubble, statusLabel);
 
         // disables buttons before pet name is given
@@ -372,10 +375,10 @@ public class VirtualPetGame extends Application {
         speechBubble.setVisible(true);
     }
 
+    // creates and returns a status bar as a VBox to display the title, reset, and exit buttons
     private VBox createStatusBar(Label label, ProgressBar bar) {
 
         label.setPrefWidth(180);
-
         bar.setPrefSize(180, 14);
         bar.setMaxWidth(180);
 
@@ -396,14 +399,12 @@ public class VirtualPetGame extends Application {
                 buttonWidth, 0.0,
                 buttonWidth / 2, buttonHeight);
 
+        // keeps the button's size proportional to the triangle
         button.setShape(buttonShape);
         button.setScaleShape(true);
-
-        // keeps the button's size proportional to the triangle
         button.setMinSize(buttonWidth, buttonHeight);
         button.setPrefSize(buttonWidth, buttonHeight);
         button.setMaxSize(buttonWidth, buttonHeight);
-
         button.setAlignment(Pos.CENTER);
         button.setPadding(new Insets(0, 0, buttonHeight / 3, 0));
 
