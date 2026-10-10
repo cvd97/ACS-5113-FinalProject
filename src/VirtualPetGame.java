@@ -119,6 +119,7 @@ public class VirtualPetGame extends Application {
         double barHeight = 55;
         double sideInset = barHeight / Math.sqrt(3);
 
+        // creates the top bar shape and size
         Polygon topBar = new Polygon(
                 20.0, 20.0,
                 windowWidth + 20, 20.0,
