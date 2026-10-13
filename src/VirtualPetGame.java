@@ -376,7 +376,8 @@ public class VirtualPetGame extends Application {
         speechBubble.setVisible(true);
     }
 
-    // creates and returns a status bar as a VBox to display the title, reset, and exit buttons
+    // creates and returns a status bar as a VBox to display the title, reset, and
+    // exit buttons
     private VBox createStatusBar(Label label, ProgressBar bar) {
 
         label.setPrefWidth(180);
