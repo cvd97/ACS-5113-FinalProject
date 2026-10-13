@@ -1,4 +1,4 @@
-# ACS-5139-FinalProject-JavaFX-Virtual-Pet
+# ACS-5113-FinalProject-JavaFX-Virtual-Pet
 
 A simple virtual pet game that is similar to a Tamagotchi handheld game. 
 
@@ -6,7 +6,7 @@ The user will be able to feed, play with and let the pet rest to maintain the pe
 
 ## Project Status
 
-The main game is functional. The pet is represented by a red circle and all of the feeding, playing and sleeping mechanics are implemented.
+The main game is functional. The pet is represented by a serval different images of a doberman dog and all of the feeding, playing and sleeping mechanics have been implemented.
 
 ## Features
 
@@ -16,9 +16,9 @@ The main game is functional. The pet is represented by a red circle and all of t
 - Let the pet rest to restore energy also looses happiness
 - Progress bars to visually track the pet metrics
 - See messages that reflect the pets status
-- shows action icons so that the action can be seen
-- reset button to reset the stats of the pet
-- quit button allows for easy closing of the game
+- Shows action icons so that the action can be seen
+- `reset button` to reset the stats of the pet
+- `quit button` allows for easy closing of the game
 
 The game uses a a fixed triangular window this is to mimic the handheld experience.
 
@@ -62,8 +62,8 @@ The game uses a a fixed triangular window this is to mimic the handheld experien
 ## Running the Game
 
 1. Clone the repository and open the project
-2. Make sure JDK 21, JavaFX 21 SDK and the Microsoft Extension Pack for Java
-3. Update the file path for JavaFX library in '.vscode/setting.json'
+2. Make sure JDK 21, JavaFX 21 SDK and the Microsoft Extension Pack for Java are installed
+3. Update the file path for JavaFX library in '.vscode/setting.json' so that it match the location of the JavaFX SDK
 4. Update the module path in '.vscode/launch.json' to point to the correct SDKs lib folder
 5. launch the game and play!
 
